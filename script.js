@@ -7,21 +7,18 @@ function createSquare() {
 }
 
 function createColumn(size) {
-  let column = [];
+  let column = document.createElement("div");
+  column.className = "column";
   for (let i = 0; i < size; i++) {
-    column.push(createSquare());
+    column.appendChild(createSquare());
   }
   return column;
 }
 
 function createGrid(size) {
   for (let i = 0; i < size; i++) {
-    for (let j = 0; j < size; j++) {
-      let column = createColumn(size);
-      console.log(column);
-      container.appendChild(column[i]);
-    }
+    container.appendChild(createColumn(size));
   }
 }
 
-createGrid(2);
+createGrid(32);
