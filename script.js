@@ -1,4 +1,11 @@
 const container = document.querySelector(".container");
+let isClicked = false;
+document.onmousedown = () => {
+  isClicked = true;
+};
+document.onmouseup = () => {
+  isClicked = false;
+};
 
 function createSquare() {
   const square = document.createElement("div");
@@ -21,4 +28,24 @@ function createGrid(size) {
   }
 }
 
-createGrid(32);
+function onHover() {
+  let squares = document.querySelectorAll(".square");
+  squares.forEach((square) =>
+    square.addEventListener("mouseover", () => {
+      square.style.cursor = "crosshair";
+    })
+  );
+}
+
+function onClick() {
+  let squares = document.querySelectorAll(".square");
+  squares.forEach((square) => {
+    square.addEventListener("mouseover", () => {
+      if (isClicked) square.classList.add("color");
+    });
+  });
+}
+
+createGrid(16);
+onHover();
+onClick();
