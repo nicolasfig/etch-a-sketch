@@ -49,6 +49,7 @@ h2 {
   color: #725480;
   border: 2px solid #725480;
   background-color: #f5e6c0;
+  height: 40px;
 }
 
 .btn:hover {
@@ -63,6 +64,7 @@ h2 {
   gap: 20px;
   margin-bottom: 10px;
   justify-content: center;
+  align-items: center;
 }
 
 .slider {
@@ -73,5 +75,5 @@ h2 {
 
 a {
   text-decoration: none;
-  color: #4b3655;
+  color: #38293f;
 }
