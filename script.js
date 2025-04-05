@@ -1,13 +1,4 @@
-const container = document.querySelector(".container");
-
-// flag to check if mouse is clicked
-let isClicked = false;
-document.onmousedown = () => {
-  isClicked = true;
-};
-document.onmouseup = () => {
-  isClicked = false;
-};
+const container = document.querySelector(".grid-container");
 
 // creates a square element with specified class
 // every square size is based on the container size
@@ -49,14 +40,24 @@ function onHover() {
 
 // draws over the grid if mouse is clicked
 function draw() {
+  // flag to check if mouse is clicked
+  let isClicked = false;
+  document.onmousedown = () => {
+    isClicked = true;
+  };
+  document.onmouseup = () => {
+    isClicked = false;
+  };
   let squares = document.querySelectorAll(".square");
   squares.forEach((square) => {
     square.addEventListener("mouseover", () => {
-      if (isClicked) square.classList.add("color");
+      if (isClicked) {
+        square.classList.add("color");
+      }
     });
   });
 }
 
-createGrid(32);
+createGrid(8);
 onHover();
 draw();

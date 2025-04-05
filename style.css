@@ -1,11 +1,30 @@
 .container {
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  width: 80vw;
-  height: 80vw;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.border {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 508px;
+  height: 508px;
+  border: 2px solid #bababa;
+}
+.grid-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #bababa;
+  width: 500px;
+  height: 500px;
 }
 
 .square {
-  border: 0.5px solid #b6b6b6;
 }
 
 .color {
