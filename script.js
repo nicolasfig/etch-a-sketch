@@ -2,7 +2,7 @@ const container = document.querySelector(".grid-container");
 const gridSizeSelector = document.querySelector("#size");
 const gridSizeDisplay = document.querySelector(".grid-size");
 
-let gridSize = 8;
+let gridSize = gridSizeSelector.value;
 
 // creates a square element with specified class
 // every square size is based on the container size
@@ -30,6 +30,7 @@ function createGrid(size) {
   for (let i = 0; i < size; i++) {
     container.appendChild(createColumn(size));
   }
+  draw();
 }
 
 // changes the mouse cursor on hover
@@ -44,6 +45,7 @@ function onHover() {
 
 // draws over the grid if mouse is clicked
 function draw() {
+  onHover();
   // flag to check if mouse is clicked
   let isClicked = false;
   document.onmousedown = () => {
@@ -62,14 +64,15 @@ function draw() {
   });
 }
 
-function updateSize() {
+function selectSize() {
   gridSizeSelector.addEventListener("input", () => {
     gridSize = gridSizeSelector.value;
     gridSizeSelector.setAttribute("value", gridSize);
-    gridSizeDisplay.innerHTML = gridSize;
+    gridSizeDisplay.innerHTML = `${gridSize} x ${gridSize}`;
+    container.innerHTML = "";
+    createGrid(gridSize);
   });
 }
 
-createGrid(4);
-onHover();
-draw();
+createGrid(gridSize);
+selectSize();
