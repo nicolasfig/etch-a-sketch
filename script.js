@@ -1,6 +1,10 @@
 const container = document.querySelector(".grid-container");
 const gridSizeSelector = document.querySelector("#size");
 const gridSizeDisplay = document.querySelector(".grid-size");
+const btnReset = document.querySelector(".reset");
+const btnRainbow = document.querySelector(".rainbow");
+const defaultColor = "#000000";
+let selectedColor = defaultColor;
 
 let gridSize = gridSizeSelector.value;
 
@@ -30,7 +34,7 @@ function createGrid(size) {
   for (let i = 0; i < size; i++) {
     container.appendChild(createColumn(size));
   }
-  draw();
+  draw(selectedColor);
 }
 
 // changes the mouse cursor on hover
@@ -44,7 +48,7 @@ function onHover() {
 }
 
 // draws over the grid if mouse is clicked
-function draw() {
+function draw(color) {
   onHover();
   // flag to check if mouse is clicked
   let isClicked = false;
@@ -58,7 +62,7 @@ function draw() {
   squares.forEach((square) => {
     square.addEventListener("mouseover", () => {
       if (isClicked) {
-        square.classList.add("color");
+        square.style.backgroundColor = color;
       }
     });
   });
@@ -72,6 +76,39 @@ function selectSize() {
     container.innerHTML = "";
     createGrid(gridSize);
   });
+}
+
+// Resets the grid
+function resetGrid() {
+  container.innerHTML = "";
+  createGrid(gridSize);
+}
+
+btnReset.addEventListener("click", () => {
+  resetGrid();
+});
+
+function rainbowColors() {
+  selectedColor = randomColor();
+  resetGrid();
+}
+
+btnRainbow.addEventListener("click", () => {
+  rainbowColors();
+});
+
+function randomColor() {
+  let r = getRandomIntInclusive(0, 255);
+  let g = getRandomIntInclusive(0, 255);
+  let b = getRandomIntInclusive(0, 255);
+  return `rgb(${r},${g},${b})`;
+}
+
+// Helper function to generate random integers
+function getRandomIntInclusive(min, max) {
+  const minCeiled = Math.ceil(min);
+  const maxFloored = Math.floor(max);
+  return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
 }
 
 createGrid(gridSize);
