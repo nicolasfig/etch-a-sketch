@@ -1,4 +1,8 @@
 const container = document.querySelector(".grid-container");
+const gridSizeSelector = document.querySelector("#size");
+const gridSizeDisplay = document.querySelector(".grid-size");
+
+let gridSize = 8;
 
 // creates a square element with specified class
 // every square size is based on the container size
@@ -58,6 +62,14 @@ function draw() {
   });
 }
 
-createGrid(8);
+function updateSize() {
+  gridSizeSelector.addEventListener("input", () => {
+    gridSize = gridSizeSelector.value;
+    gridSizeSelector.setAttribute("value", gridSize);
+    gridSizeDisplay.innerHTML = gridSize;
+  });
+}
+
+createGrid(4);
 onHover();
 draw();

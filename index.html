@@ -8,9 +8,22 @@
   </head>
   <body>
     <div class="container">
-      <h1>Etch a sketch!</h1>
+      <h1>Etch A Sketch! ✍️</h1>
       <div class="border">
         <div class="grid-container"></div>
+      </div>
+      <h2 class="grid-size">8</h2>
+      <div class="slider">
+        <input
+          type="range"
+          id="size"
+          name="size"
+          min="2"
+          max="64"
+          step="2"
+          value="16"
+          onchange="updateSize()"
+        />
       </div>
     </div>
     <script src="script.js"></script>
