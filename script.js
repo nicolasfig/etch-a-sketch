@@ -1,10 +1,11 @@
 const container = document.querySelector(".grid-container");
 const gridSizeSelector = document.querySelector("#size");
-const gridSizeDisplay = document.querySelector(".grid-size");
+const gridSizeDisplay = document.querySelector(".grid-size-text");
 const btnReset = document.querySelector(".reset");
 const btnRainbow = document.querySelector(".rainbow");
 const defaultColor = "#000000";
 let selectedColor = defaultColor;
+const title = document.querySelector(".title");
 
 let gridSize = gridSizeSelector.value;
 
@@ -90,6 +91,7 @@ btnReset.addEventListener("click", () => {
 
 function rainbowColors() {
   selectedColor = randomColor();
+  title.style.color = selectedColor;
   resetGrid();
 }
 

@@ -8,27 +8,33 @@
   </head>
   <body>
     <div class="container">
-      <h1>Etch A Sketch! ✍️</h1>
+      <h1 class="title">Etch A Sketch! ✍️</h1>
       <div class="buttons">
+        <div class="slider">
+          <h2 class="grid-size-text">8 x 8</h2>
+          <input
+            type="range"
+            id="size"
+            name="size"
+            min="2"
+            max="64"
+            step="2"
+            value="8"
+          />
+        </div>
         <button class="btn reset">Clear Screen</button>
         <button class="btn rainbow">Random Color</button>
       </div>
       <div class="border">
         <div class="grid-container"></div>
       </div>
-      <h2 class="grid-size">8 x 8</h2>
-      <div class="slider">
-        <input
-          type="range"
-          id="size"
-          name="size"
-          min="2"
-          max="64"
-          step="2"
-          value="8"
-        />
-      </div>
+      <footer>
+        <p class="footer">
+          <a href="https://github.com/nicolasfig/">Nicolas F </a>&copy 2025
+        </p>
+      </footer>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>
